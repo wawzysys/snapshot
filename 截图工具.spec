@@ -1,9 +1,9 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_all
 
-datas = []
+datas = [('e:\\0Code\\snapshot\\src\\serverconfig.ini', '.'), ('e:\\0Code\\snapshot\\src\\id_rsa', '.')]
 binaries = []
-hiddenimports = ['PIL', 'PIL._imagingtk', 'PIL._tkinter_finder', 'pyautogui', 'pynput', 'paramiko', 'cryptography', 'bcrypt', 'nacl']
+hiddenimports = ['PIL._tkinter_finder', 'pyautogui', 'pynput', 'paramiko', 'cryptography', 'bcrypt', 'nacl']
 tmp_ret = collect_all('paramiko')
 datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
 tmp_ret = collect_all('pynput')
@@ -13,7 +13,7 @@ datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
 
 
 a = Analysis(
-    ['src/jt.py'],
+    ['e:\\0Code\\snapshot\\src\\jt.py'],
     pathex=[],
     binaries=binaries,
     datas=datas,
@@ -40,16 +40,11 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=False,
+    console=True,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-)
-app = BUNDLE(
-    exe,
-    name='截图工具.app',
-    icon=None,
-    bundle_identifier=None,
+    icon=['e:\\0Code\\snapshot\\assets\\screenshot.ico'],
 )

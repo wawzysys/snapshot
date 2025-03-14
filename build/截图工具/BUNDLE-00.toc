@@ -1,1 +1,0 @@
-([('截图工具', '/Users/wz/Desktop/Code/snapshot/dist/截图工具', 'EXECUTABLE')],)
